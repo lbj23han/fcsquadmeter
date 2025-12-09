@@ -11,7 +11,11 @@ async function fcFetch<T>(path: string): Promise<T> {
   });
 
   if (!res.ok) {
-    throw new Error(`FC API error: ${res.status}`);
+    if (res.status === 429) {
+      // 레이트 리밋용 별도 에러 코드
+      throw new Error("FC_API_RATE_LIMIT");
+    }
+    if (res.status) throw new Error(`FC API error: ${res.status}`);
   }
 
   return res.json() as Promise<T>;
@@ -20,7 +24,7 @@ async function fcFetch<T>(path: string): Promise<T> {
 // ① matchId 리스트 조회 (클래식 1on1 = 40)
 export async function getClassicMatchIds(ouid: string): Promise<string[]> {
   return fcFetch<string[]>(
-    `/user/match?ouid=${ouid}&matchtype=40&offset=0&limit=100`
+    `/user/match?ouid=${ouid}&matchtype=40&offset=0&limit=20`
   );
 }
 
