@@ -1,7 +1,6 @@
-export const FCS_TITLE = "FC SquadMeter";
+export const FCS_TITLE = "FC Online 상대전적 비교";
 
-export const FCS_DESCRIPTION =
-  "친구 4명의 전적/상대전적을 모아 랭킹으로 보여주는 보드";
+export const FCS_DESCRIPTION = "상훈, 중한, 환진, 찬희의 전적비교용 페이지 V1";
 
 export const BADGE = {
   champion: {
