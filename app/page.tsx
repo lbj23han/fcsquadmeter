@@ -1,5 +1,3 @@
-// app/page.tsx
-
 import { FcSquadLayout } from "@/components/ui/FcSquadLayout";
 import { SquadMeterBoard } from "@/components/ui/SquadMeterBoard";
 import { getHomePageData } from "@/lib/fcHomePage";

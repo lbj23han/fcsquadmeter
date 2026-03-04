@@ -1,4 +1,3 @@
-// components/ui/SquadMeterBoard.tsx
 import { FRIENDS } from "@/lib/friends";
 import type { RankedFriend } from "@/lib/fconline";
 import { BADGE } from "@/constants/fcsquadmeter";
@@ -19,7 +18,6 @@ export function SquadMeterBoard({ players }: Props) {
             key={p.ouid}
             className="mb-4 rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 shadow-sm"
           >
-            {/* 상단: 순위 + id + 배지 */}
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-lg font-semibold">
@@ -46,7 +44,6 @@ export function SquadMeterBoard({ players }: Props) {
                 </div>
               </div>
 
-              {/* 총 전적 요약 */}
               <div className="text-right text-xs text-zinc-400">
                 <div className="flex justify-end gap-1">
                   <span className="rounded bg-emerald-500/10 px-2 py-0.5 text-emerald-300">
@@ -67,7 +64,6 @@ export function SquadMeterBoard({ players }: Props) {
               </div>
             </div>
 
-            {/* 상대전적 */}
             <div className="mt-4 text-sm">
               <div className="mb-1 text-zinc-300 font-medium">
                 {LABELS.opponentHeader}

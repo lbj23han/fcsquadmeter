@@ -1,5 +1,3 @@
-// lib/fcHomePage.ts
-
 import { calculateFriendsStats, buildRanking } from "@/lib/fconline";
 import { resolveFcErrorMessage } from "@/lib/resolveError";
 

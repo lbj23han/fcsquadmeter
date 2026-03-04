@@ -1,5 +1,3 @@
-// constants/error.ts
-
 export const FC_ERROR_MESSAGES = {
   API_RATE_LIMIT:
     "넥슨 FC API 호출 제한에 걸렸습니다. 잠시 후 다시 시도해주세요.",

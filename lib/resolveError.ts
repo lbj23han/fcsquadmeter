@@ -1,5 +1,3 @@
-// lib/resolveError.ts
-
 import { FC_ERROR_MESSAGES } from "@/constants/error";
 
 export function resolveFcErrorMessage(error: unknown): string {

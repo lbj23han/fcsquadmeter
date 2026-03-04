@@ -1,5 +1,3 @@
-// lib/friends.ts
-
 export type Friend = {
   id: string; // 내부에서 쓸 id (닉네임이랑 같게 써도 됨)
   nickname: string; // FC 온라인 닉네임
