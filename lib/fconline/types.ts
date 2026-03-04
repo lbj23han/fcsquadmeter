@@ -1,6 +1,3 @@
-// lib/fconline/types.ts
-
-// ② match-detail 타입
 export type MatchDetailResponse = {
   matchId: string;
   matchDate: string;

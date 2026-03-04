@@ -1,4 +1,3 @@
-// lib/fconline/stats.ts
 import { FRIENDS } from "../friends";
 import type { FriendStats } from "./types";
 import { parseMatchDetail } from "./parsers";
@@ -15,7 +14,6 @@ export async function calculateFriendsStats(): Promise<FriendStats[]> {
   const allMatchIds = new Set<string>();
 
   // 1) 친구별 matchId 모으기
-  // (나중에 성능 튜닝할 때 여기 Promise.all 로 병렬로 바꾸면 됨)
   for (const f of FRIENDS) {
     const ids = await getClassicMatchIds(f.ouid!);
     ids.forEach((id) => allMatchIds.add(id));

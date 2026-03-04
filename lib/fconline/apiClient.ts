@@ -1,4 +1,3 @@
-// lib/fconline/apiClient.ts
 const FC_BASE_URL = "https://open.api.nexon.com/fconline/v1";
 
 async function fcFetch<T>(path: string): Promise<T> {
@@ -24,7 +23,7 @@ async function fcFetch<T>(path: string): Promise<T> {
 // ① matchId 리스트 조회 (클래식 1on1 = 40)
 export async function getClassicMatchIds(ouid: string): Promise<string[]> {
   return fcFetch<string[]>(
-    `/user/match?ouid=${ouid}&matchtype=40&offset=0&limit=20`
+    `/user/match?ouid=${ouid}&matchtype=40&offset=0&limit=20`,
   );
 }
 
@@ -32,7 +31,7 @@ export async function getClassicMatchIds(ouid: string): Promise<string[]> {
 import type { MatchDetailResponse } from "./types";
 
 export async function getMatchDetail(
-  matchId: string
+  matchId: string,
 ): Promise<MatchDetailResponse> {
   return fcFetch<MatchDetailResponse>(`/match-detail?matchid=${matchId}`);
 }

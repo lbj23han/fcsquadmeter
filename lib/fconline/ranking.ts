@@ -1,4 +1,3 @@
-// lib/fconline/ranking.ts
 import type { FriendStats } from "./types";
 
 export type RankedFriend = FriendStats & {

@@ -1,5 +1,3 @@
-// lib/division.ts
-
 const DIVISIONS = [
   { divisionId: 800, divisionName: "슈퍼챔피언스" },
   { divisionId: 900, divisionName: "챔피언스" },

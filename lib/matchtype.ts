@@ -1,5 +1,3 @@
-// lib/matchtype.ts
-
 export const MATCH_TYPES = [
   { matchtype: 30, desc: "리그 친선" },
   { matchtype: 40, desc: "클래식 1on1" },

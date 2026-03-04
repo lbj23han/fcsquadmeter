@@ -1,6 +1,13 @@
-// components/ui/FcSquadLayout.tsx
 import type { ReactNode } from "react";
 import { FCS_TITLE, FCS_DESCRIPTION } from "@/constants/fcsquadmeter";
+
+import {
+  LAYOUT_MAIN,
+  LAYOUT_CONTAINER,
+  LAYOUT_HEADER,
+  LAYOUT_TITLE,
+  LAYOUT_SUBTITLE,
+} from "@/styles/layout";
 
 type Props = {
   children: ReactNode;
@@ -8,14 +15,12 @@ type Props = {
 
 export function FcSquadLayout({ children }: Props) {
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-50">
-      <div className="mx-auto max-w-3xl px-4 py-8">
-        <header className="mb-6 flex items-center justify-between">
+    <main className={LAYOUT_MAIN}>
+      <div className={LAYOUT_CONTAINER}>
+        <header className={LAYOUT_HEADER}>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">
-              {FCS_TITLE}
-            </h1>
-            <p className="mt-1 text-sm text-zinc-400">{FCS_DESCRIPTION}</p>
+            <h1 className={LAYOUT_TITLE}>{FCS_TITLE}</h1>
+            <p className={LAYOUT_SUBTITLE}>{FCS_DESCRIPTION}</p>
           </div>
         </header>
 
