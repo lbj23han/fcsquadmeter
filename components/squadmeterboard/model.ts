@@ -1,7 +1,6 @@
-import { FRIENDS } from "@/lib/friends";
-import type { RankedFriend } from "@/lib/fconline";
+import type { RankedFriend, Player } from "@/lib/fconline";
 
-export type Opponent = (typeof FRIENDS)[number];
+export type Opponent = Player;
 
 export type PlayerVM = {
   player: RankedFriend;
@@ -9,8 +8,11 @@ export type PlayerVM = {
   vsByOpponentId: Map<string, RankedFriend["vs"][number]>;
 };
 
-export function buildPlayerVM(player: RankedFriend): PlayerVM {
-  const opponents = FRIENDS.filter((f) => f.ouid !== player.ouid);
+export function buildPlayerVM(
+  player: RankedFriend,
+  allPlayers: Player[],
+): PlayerVM {
+  const opponents = allPlayers.filter((p) => p.ouid !== player.ouid);
 
   const vsByOpponentId = new Map(
     player.vs.map((v) => [v.opponentId, v] as const),

@@ -1,3 +1,24 @@
+export type OuidResponse = { ouid: string };
+
+export type Player = {
+  id: string;
+  nickname: string;
+  ouid: string;
+};
+
+export type MatchPlayerStatus = {
+  assist: number;
+  goal: number;
+  spRating: number;
+};
+
+export type MatchPlayerEntry = {
+  spId: number;
+  spPosition: number;
+  spGrade: number;
+  status: MatchPlayerStatus;
+};
+
 export type MatchDetailResponse = {
   matchId: string;
   matchDate: string;
@@ -6,6 +27,7 @@ export type MatchDetailResponse = {
     nickname: string;
     matchDetail: { matchResult: "승" | "무" | "패" | string };
     shoot: { goalTotal: number };
+    player: MatchPlayerEntry[];
   }>;
 };
 
@@ -14,6 +36,7 @@ export type OpponentRecord = {
   wins: number;
   draws: number;
   losses: number;
+  matchIds: string[];
 };
 
 export type FriendStats = {
@@ -29,4 +52,13 @@ export type FriendStats = {
   goalsAgainst: number;
 
   vs: OpponentRecord[];
+};
+
+export type PlayerStatSummary = {
+  spId: number;
+  name: string;
+  appearances: number;
+  avgRating: number;
+  totalGoals: number;
+  totalAssists: number;
 };
