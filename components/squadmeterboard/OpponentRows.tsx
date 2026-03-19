@@ -1,19 +1,15 @@
 import { LABELS } from "@/constants/squadmeterboard";
+import type { OpponentRecord } from "@/lib/fconline";
 import type { Opponent } from "./model";
-
-type Vs = {
-  opponentId: string;
-  wins: number;
-  draws: number;
-  losses: number;
-};
+import { OpponentRow } from "./OpponentRow";
 
 type Props = {
   opponents: Opponent[];
-  vsByOpponentId: Map<string, Vs>;
+  vsByOpponentId: Map<string, OpponentRecord>;
+  playerOuid: string;
 };
 
-export function OpponentRows({ opponents, vsByOpponentId }: Props) {
+export function OpponentRows({ opponents, vsByOpponentId, playerOuid }: Props) {
   return (
     <>
       {opponents.map((opp) => {
@@ -28,15 +24,12 @@ export function OpponentRows({ opponents, vsByOpponentId }: Props) {
         }
 
         return (
-          <div key={opp.id} className="ml-2 flex justify-between text-[13px]">
-            <span className="text-zinc-400">{opp.id}</span>
-            <span className="text-zinc-200">
-              {vs.wins}
-              {LABELS.win} {vs.draws}
-              {LABELS.draw} {vs.losses}
-              {LABELS.loss}
-            </span>
-          </div>
+          <OpponentRow
+            key={opp.id}
+            opponent={opp}
+            vs={vs}
+            playerOuid={playerOuid}
+          />
         );
       })}
     </>

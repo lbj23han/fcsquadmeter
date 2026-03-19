@@ -5,5 +5,9 @@ export function resolveFcErrorMessage(error: unknown): string {
     return FC_ERROR_MESSAGES.API_RATE_LIMIT;
   }
 
+  if (error instanceof Error && error.message === "FC_NICKNAME_NOT_FOUND") {
+    return FC_ERROR_MESSAGES.NICKNAME_NOT_FOUND;
+  }
+
   return FC_ERROR_MESSAGES.GENERIC;
 }
