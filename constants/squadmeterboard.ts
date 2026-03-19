@@ -17,4 +17,11 @@ export const LABELS = {
   win: "승",
   draw: "무",
   loss: "패",
+
+  // 상대전적 확장 UI
+  loadingPlayers: "불러오는 중...",
+  noPlayerData: "선수 데이터 없음",
+  ratingLabel: "평점",
+  goalLabel: "골",
+  assistLabel: "어시",
 } as const;

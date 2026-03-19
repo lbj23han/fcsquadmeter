@@ -52,6 +52,7 @@ export function PlayerCard({ vm }: Props) {
         <OpponentRows
           opponents={vm.opponents}
           vsByOpponentId={vm.vsByOpponentId}
+          playerOuid={p.ouid}
         />
       </div>
     </article>
