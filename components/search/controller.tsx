@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { buildSearchVM } from "./model";
 import { SearchFormView } from "./SearchFormView";
@@ -13,6 +13,7 @@ export function SearchForm({ defaultValue }: Props) {
   const router = useRouter();
   const [value, setValue] = useState(defaultValue);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
 
   function handleSubmit(raw: string) {
     const vm = buildSearchVM(raw);
@@ -23,7 +24,9 @@ export function SearchForm({ defaultValue }: Props) {
     }
 
     setErrorMessage(null);
-    router.push(`/?nicknames=${vm.nicknames.join(",")}`);
+    startTransition(() => {
+      router.push(`/?nicknames=${vm.nicknames.join(",")}`);
+    });
   }
 
   return (
@@ -32,6 +35,7 @@ export function SearchForm({ defaultValue }: Props) {
       errorMessage={errorMessage}
       onChange={setValue}
       onSubmit={handleSubmit}
+      isPending={isPending}
     />
   );
 }
